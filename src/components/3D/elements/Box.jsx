@@ -19,6 +19,7 @@ export function Box(props) {
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => (event.stopPropagation(), hover(true))}
       onPointerOut={(event) => hover(false)}
+    receiveShadow castShadow
     >
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={hovered ? "purple" : "hotpink"} />

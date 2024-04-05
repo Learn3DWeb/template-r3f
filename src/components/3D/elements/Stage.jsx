@@ -2,13 +2,12 @@ import { CameraControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber';
 import React from 'react'
 import styled from 'styled-components';
+import SpotLightComponent from './lights/Spot';
 
 export function Stage({ children, ...props}) {
   return (
-    <CanvasStyle>
-      <ambientLight intensity={Math.PI / 2} />
-      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
-      <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+    <CanvasStyle shadows >
+      <SpotLightComponent />
       {children}
       <CameraControls />
     </CanvasStyle>

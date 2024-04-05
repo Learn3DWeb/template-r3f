@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 import { HUD } from "./components/UX/";
 import { Scene3D } from "./components/3D";
+import { Leva } from "leva";
 
 export function App() {
   return (
     <AppStyle>
+      <Leva />
       <Scene3D />
       <HUD />
     </AppStyle>
