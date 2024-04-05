@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://learn3dweb.com/"><img src="https://raw.githubusercontent.com/Learn3DWeb/.github/main/Learn3DWeb_Rec.svg" alt="Learn3DWeb Logo"></a>
+  <a href="https://learn3dweb.com/"><img src="https://github.com/Learn3DWeb/.github/blob/main/Branding/images/Learn3DWeb_Rec.svg" alt="Learn3DWeb Logo"></a>
 </p>
 
 # Template: React Three Fiber (R3F) Basic
