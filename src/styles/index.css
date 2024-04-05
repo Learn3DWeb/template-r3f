@@ -1,0 +1,41 @@
+/****************************************
+Basic
+****************************************/
+:root {
+  --TitleFont: Tahoma, Verdana, sans-serif;
+  --Background: linear-gradient(to right, #ffd194, #d1913c);
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  place-items: center;
+  width: 100%;
+  height: auto;
+  height: 100vh;
+  height: 100dvh;
+  height: -webkit-fill-available;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: var(--CopySize);
+}
+
+body {
+  background: var(--Background);
+}
+
+/****************************************
+Box Sizing
+****************************************/
+* {
+  box-sizing: border-box;
+}
+
+a {
+  pointer-events: all;
+}
