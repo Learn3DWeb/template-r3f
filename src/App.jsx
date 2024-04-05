@@ -7,7 +7,7 @@ import { Leva } from "leva";
 export function App() {
   return (
     <AppStyle>
-      <Leva />
+      <Leva titleBar={{title:"Debug Controls"}} />
       <Scene3D />
       <HUD />
     </AppStyle>
