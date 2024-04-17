@@ -8,7 +8,7 @@ function generateID(length = 3) {
     .map(() => Math.floor(Math.random() * 16).toString(16))
     .join("");
 }
-
+// NO SHADOW SUPPORT
 // Memoized RectAreaLightLeva component
 export const RectAreaLightLeva = memo(
   ({
@@ -20,6 +20,7 @@ export const RectAreaLightLeva = memo(
     width = 10,
     height = 10,
     showHelper = false,
+    castShadow = true,
     ...props
   }) => {
     // Generate a unique ID for each RectAreaLight or use provided name
@@ -39,6 +40,7 @@ export const RectAreaLightLeva = memo(
             color: { value: color },
             // Numeric value of the light's intensity
             intensity: { value: intensity, min: 0, step: 0.1 },
+            castShadow: { value: castShadow },
             // Width of the light
             width: { value: width, min: 0, step: 0.1 },
             // Height of the light
@@ -63,9 +65,10 @@ export const RectAreaLightLeva = memo(
           <Plane
             args={[rectAreaLightVars.width, rectAreaLightVars.height]}
             position={rectAreaLightVars.position}
-            rotation={rectAreaLightVars.ro}
+            rotation={rectAreaLightVars.rotation}
             material-color={rectAreaLightVars.color}
             material-wireframe={true}
+            {...props}
           />
         )}
       </>

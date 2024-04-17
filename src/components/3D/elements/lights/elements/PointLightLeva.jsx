@@ -18,7 +18,7 @@ export const PointLightLeva = memo(
     intensity = 1, // Default intensity is 1
     distance = 0, // Default distance is 0 (no limit)
     decay = 2, // Default decay is 2
-    castShadow = false, // Default is not to cast shadows
+    castShadow = true, // Default is not to cast shadows
     showHelper = false, // Default is not to show the helper
     ...props
   }) => {

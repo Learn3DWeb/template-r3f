@@ -22,9 +22,10 @@ export const SpotLightLeva = memo(
     helperColor = "cyan", // Default helper color is cyan
     position = [0, 0, 0], // Default position is (0, 1, 1)
     targetPosition = [0, 0, 0], // Default target position is (0, 0, 0)
-    castShadow = false, // Default is not to cast shadows
+    castShadow = true, // Default is not to cast shadows
     showTarget = false, // Default is not to show the target
     showHelper = false, // Default is not to show the helper
+    visible = true, // Default is visible
     ...props
   }) => {
     // Generate a unique ID for each spotlight or use provided name
@@ -38,6 +39,7 @@ export const SpotLightLeva = memo(
         // Create a folder for spotlight parameters
         [`light:${ID}`]: folder(
           {
+            visible: { value: visible },
             // Toggle for helper visibility
             showHelper: { value: showHelper },
             // Hexadecimal color of the light

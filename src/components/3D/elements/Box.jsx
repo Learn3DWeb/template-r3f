@@ -1,6 +1,6 @@
 import React from "react";
-import { useRef, useState } from 'react'
-import {  useFrame } from '@react-three/fiber'
+import { useRef, useState } from "react";
+import { useFrame } from "@react-three/fiber";
 
 export function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
@@ -19,7 +19,8 @@ export function Box(props) {
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => (event.stopPropagation(), hover(true))}
       onPointerOut={(event) => hover(false)}
-    receiveShadow castShadow
+      receiveShadow
+      castShadow
     >
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={hovered ? "purple" : "hotpink"} />

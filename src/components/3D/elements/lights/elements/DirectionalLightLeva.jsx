@@ -20,8 +20,8 @@ export const DirectionalLightLeva = memo(
     shadowRadius = 1,
     shadowFar = 9,
     cameraSize = 3,
-    castShadow = false, // Default is not to cast shadows
-    showHelper = false, // Default is not to show the helper
+    castShadow = true,
+    showHelper = false,
     position = [0, 1, 1], // Default position is (0, 1, 1)
     ...props
   }) => {
@@ -29,7 +29,13 @@ export const DirectionalLightLeva = memo(
     let ID = name || useMemo(() => generateID(), []);
 
     // Create Leva controls for adjusting DirectionalLight parameters
-    const directionalLightVars = useControls(
+    const {
+      shadowFar:SFar,
+      cameraSize:CSize,
+      shadowBias:SBias,
+      shadowRadius:SRadius,
+      ...directionalLightVars
+    } = useControls(
       // Group DirectionalLight controls under a folder with a unique name
       `🌕 directionallight`,
       {
@@ -67,25 +73,16 @@ export const DirectionalLightLeva = memo(
     const directionalLightRef = useRef();
     const dCamera = useRef();
 
-    // Attach PointLightHelper to point light ref if showHelper is true
-    // useHelper(
-    //   directionalLightVars.showHelper ? directionalLightRef : { current: null },
-    //   DirectionalLightHelper,
-    //   0.5,
-    //   directionalLightVars.color
-    // );
-
-    // useEffect(() => {
-    //   dCamera.current = directionalLightRef.current ? directionalLightRef.current.shadow.camera : null;
-    // }, [directionalLightRef]);
     useEffect(() => {
-      dCamera.current = directionalLightRef.current ? directionalLightRef.current.shadow.camera : null;
+      dCamera.current = directionalLightRef.current
+        ? directionalLightRef.current.shadow.camera
+        : null;
     }, [directionalLightRef]);
 
-     useHelper(
-       directionalLightVars.showHelper ? dCamera : { current: null },
-       CameraHelper
-     );
+    useHelper(
+      directionalLightVars.showHelper ? dCamera : { current: null },
+      CameraHelper
+    );
 
     return (
       <>
@@ -96,13 +93,13 @@ export const DirectionalLightLeva = memo(
           castShadow
           shadow-mapSize-height={1024}
           shadow-mapSize-width={1024}
-          shadow-camera-far={shadowFar}
-          shadow-camera-left={-cameraSize}
-          shadow-camera-right={cameraSize}
-          shadow-camera-top={cameraSize}
-          shadow-camera-bottom={-cameraSize}
-          shadow-bias={shadowBias}
-          shadow-radius={shadowRadius}
+          shadow-camera-far={SFar}
+          shadow-camera-left={CSize * -1}
+          shadow-camera-right={CSize}
+          shadow-camera-top={CSize}
+          shadow-camera-bottom={CSize * -1}
+          shadow-bias={SBias}
+          shadow-radius={SRadius}
         />
       </>
     );
